@@ -1,52 +1,67 @@
 /* General Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
 }
 
 header {
-  background-color: #333;
-  color: white;
-  padding: 20px;
+  background-color: #222; 
+  color: #fff;
+  padding: 20px 0;
   text-align: center;
   position: sticky;
   top: 0;
+  width: 100%;
   z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for better visual separation */
 }
 
 header h1 {
   margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
 }
 
 #searchBox {
   width: 60%;
-  padding: 10px;
+  padding: 12px 15px;
   margin-top: 10px;
   font-size: 16px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  transition: border-color 0.3s;
+}
+
+#searchBox:focus {
+  outline: none;
+  border-color: #666; /* Improved focus state for accessibility */
 }
 
 /* Book List */
 .book-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Slightly wider columns */
+  gap: 25px; /* Increased gap for better spacing */
+  padding: 30px;
 }
 
 .book-item {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
   padding: 20px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
 }
 
 .book-item:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px); /* Subtle hover effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced hover shadow */
 }
 
 .book-item img {
@@ -54,11 +69,22 @@ header h1 {
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
+  transition: opacity 0.3s ease; /* Smooth image load/hover effect */
+}
+
+.book-item:hover img {
+  opacity: 0.9;
 }
 
 .book-item h3 {
-  margin-top: 10px;
-  font-size: 18px;
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.book-item:hover h3 {
+  color: #555; /* Slight color change on hover */
 }
 
 /* Modal Styles */
@@ -71,30 +97,59 @@ header h1 {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 0.3s ease; /* Smooth modal appearance */
 }
 
 .modal-content {
-  background-color: white;
-  margin: 15% auto;
-  padding: 20px;
-  width: 80%;
-  border-radius: 10px;
+  background-color: #fff;
+  margin: 10% auto; /* Lowered modal for better spacing */
+  padding: 30px;
+  width: 70%; /* Reduced width for a cleaner look */
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced modal shadow */
   position: relative;
+  animation: fadeIn 0.3s ease; /* Modal fade-in animation */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .close-btn {
   position: absolute;
-  top: 10px;
+  top: 15px;
   right: 20px;
   font-size: 28px;
+  color: #333;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
+.close-btn:hover {
+  color: #555;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #333;
+  background-color: #222;
   color: white;
   position: sticky;
   bottom: 0;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+  color: #00bcd4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #008c9e; /* Lighter hover color */
 }
